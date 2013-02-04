@@ -2,7 +2,7 @@ library(ape);
 # You need to use the file read.nexus.R which is a modified version of the 
 # one distributed with the package APE
 source("read.nexus.R");
-
+source("deltagamma.R");
 
 
 #########################################
