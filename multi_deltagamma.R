@@ -6,7 +6,7 @@ source("read.nexus.R");
 
 
 #########################################
-# MULTI DELTAGAMMA PROCESSING 
+# MULTI DELTAGAMMA PARAMETERS
 #########################################
 
 # parameters
@@ -26,8 +26,13 @@ number_trees = c(1:9);
 interval.widths = c(1,2,3,4);
 
 
+#########################################
+# processing
+
 for( i in 1:length(tree_files) ) {
 	cat("\n\n## Working on tree_file: ", tree_files[i]);
+    
+    # save histograms to PDF files
 	pdf(file=paste(tree_files[i], ".pdf", sep=""));
 	# plot cool histogram
 	par(mfcol=c(2,2));
