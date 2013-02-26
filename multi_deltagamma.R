@@ -40,6 +40,9 @@ for( i in 1:length(tree_files) ) {
 		cat("\n\t# Working on interval.width: ", interval.widths[j]);
 		all_break_points <- run_delta.gamma(tree_files[i], number_trees,
 										interval.widths[j]);
+		# save to file
+		save(all_break_points, file=paste("break_points", j, sep=""));
+
 		# plot cool histogram
 		hist(all_break_points, breaks=80, 
                     main=paste("interval.width", interval.widths[j]), xlab="Mya");
