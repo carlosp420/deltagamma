@@ -17,13 +17,13 @@ source("deltagamma.R");
 
 # 1. tree_files should be a vector with the names of the tree files to
 #    process:   c("Lep_tree01.nex", "Lep_tree02.nex" and so on)
-tree_files = c("Lep_10_01.trees", "Lep_10_02.trees", "Lep_10_03.trees");
+tree_files = c("Lep_10_01.trees");
 
 # 2. number of trees contained in each tree file
 number_trees = c(1:9);
 
 # 3. vector of interval.width values to proccess on each file
-interval.widths = c(1,2,3,4);
+interval.widths = c(1);
 
 
 #########################################
@@ -38,8 +38,9 @@ for( i in 1:length(tree_files) ) {
 	par(mfcol=c(2,2));
 	for( j in 1:length(interval.widths) ) {
 		cat("\n\t# Working on interval.width: ", interval.widths[j]);
-		all_break_points <- run_delta.gamma(tree_files[i], number_trees,
-										interval.widths[j]);
+		all_break_points <- lapply("Lep_10_01.trees", run_delta.gamma, number_trees, interval.widths[1])
+      
+    # run_delta.gamma(tree_files[i], number_trees, interval.widths[j]);
 		# save to file
 		save(all_break_points, file=paste("break_points", j, sep=""));
 
