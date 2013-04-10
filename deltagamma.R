@@ -1,4 +1,5 @@
 #Code to run GAM method from McInnes et al. 2011
+#Code was sent to me by McInnes (year 2012)
 
 library(ape);
 
